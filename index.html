@@ -28,42 +28,30 @@
     font-family: 'Poppins', sans-serif;
     line-height: 1.5;
     overflow-x: hidden;
-    padding-top: 92px; } /* construcción (32) + nav (60) */
+    padding-top: 104px; } /* cartel (44) + nav (60) */
 
-  /* ===== BARRA WEB EN CONSTRUCCIÓN ===== */
+  /* ===== CARTEL SUPERIOR "WEB EN CONSTRUCCIÓN" ===== */
   .construction-bar {
     position: fixed; top: 0; left: 0; width: 100%;
-    height: 32px; z-index: 1200;
-    background: repeating-linear-gradient(
-      45deg,
-      #ffcc00,
-      #ffcc00 14px,
-      #111 14px,
-      #111 28px
-    );
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-    border-bottom: 1px solid #000; }
-  .construction-bar .msg {
+    height: 44px; z-index: 1200;
     background: #111;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; }
+  .construction-bar .msg {
     color: var(--warn);
-    font-size: 0.72rem;
+    font-size: 0.92rem;
     font-weight: 700;
-    letter-spacing: 1px;
-    padding: 4px 16px;
-    border-radius: 20px;
+    letter-spacing: 1.6px;
     text-transform: uppercase;
     display: flex; align-items: center; gap: 8px;
     white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    animation: warnPulse 2.2s infinite ease-in-out; }
-  .construction-bar .msg i { color: var(--warn); font-size: 0.8rem; }
+    animation: warnPulse 2.4s infinite ease-in-out; }
   @keyframes warnPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.04); } }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; } }
 
   .top-nav {
-    position: fixed; top: 32px; left: 0; width: 100%; height: 60px;
+    position: fixed; top: 44px; left: 0; width: 100%; height: 60px;
     background: rgba(10, 10, 10, 0.98);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid #222;
@@ -81,7 +69,7 @@
     transition: transform 0.3s; }
   .menu-toggle:active { transform: scale(0.9); }
   .dropdown-menu {
-    position: fixed; top: 92px; left: 0; width: 100%;
+    position: fixed; top: 104px; left: 0; width: 100%;
     background: rgba(15, 15, 15, 0.99);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid #222;
@@ -108,7 +96,7 @@
   .floating-messages {
     position: fixed;
     left: 16px;
-    bottom: 20px;            /* cerca del borde inferior */
+    bottom: 20px;
     z-index: 1050;
     max-width: 280px;
     pointer-events: none; }
@@ -145,7 +133,6 @@
   .float-msg.promo { border-left-color: var(--warn); }
   .float-msg.promo i { color: var(--warn); }
 
-  /* Animaciones: aparece desde abajo, se va hacia abajo */
   .float-msg.show {
     animation: floatIn 0.55s cubic-bezier(.2,.8,.3,1) forwards; }
   .float-msg.hide {
@@ -442,18 +429,15 @@
     .hero-text h2 { font-size: 1.8rem; }
     .floating-messages {
       left: 10px;
-      bottom: 88px; /* arriba del botón flotante de WhatsApp en móvil */
+      bottom: 88px;
       max-width: 230px; }
     .float-msg { font-size: 0.68rem; padding: 9px 12px; gap: 7px; }
     .float-msg i { font-size: 0.85rem; } }
 </style>
 </head>
 <body>
-
-  <!-- BARRA WEB EN CONSTRUCCIÓN -->
   <div class="construction-bar" role="status" aria-live="polite">
-    <span class="msg"><i class="fas fa-person-digging"></i> 🚧 Web en construcción 🚧</span>
-  </div>
+<span class="msg">🚧 Web en construcción🚧</span></div>
 
   <nav class="top-nav">
     <a href="#" class="brand">JAVIER</a>
@@ -473,7 +457,6 @@
     </ul>
   </div>
 
-  <!-- MENSAJE FLOTANTE DE A UNO (cerca de abajo) -->
   <div class="floating-messages" id="floatingMessages" aria-live="polite"></div>
 
   <header class="hero">
@@ -502,7 +485,7 @@
   </section>
 
   <section id="servicios">
-    <h2 class="section-title">Por qué elegirme?</h2>
+<h2 class="section-title">Por qué elegirme?</h2>
     <div class="scroll-carousel">
       <div class="scroll-item">
         <i class="fa-solid fa-house"></i>
@@ -510,7 +493,7 @@
         <p>Me traslado a tu espacio para que te sientas cómodo y relajado.</p>
       </div>
       <div class="scroll-item">
-        <i class="fa-solid fa-shield-halved"></i>
+   <i class="fa-solid fa-shield-halved"></i>
         <h3>Máxima Higiene</h3>
         <p>Material descartable y esterilización bajo estrictas normas de seguridad.</p>
       </div>
@@ -528,13 +511,12 @@
   </section>
 
   <section id="reserva">
-    <h2 class="section-title">Reserva Rápida</h2>
+<h2 class="section-title">Reserva Rápida</h2>
     <div class="booking-section">
       <form class="booking-form" id="bookingForm" onsubmit="sendBookingForm(event)">
         <label for="bookName">Nombre:</label>
         <input type="text" id="bookName" required placeholder="Ej: Juan Pérez">
-
-        <label for="bookAddress">Dirección:</label>
+<label for="bookAddress">Dirección:</label>
         <input type="text" id="bookAddress" required placeholder="Ej: La Paz 1210, Centro">
 
         <label for="bookSize">Tamaño Aproximado:</label>
@@ -544,18 +526,18 @@
           <option value="Grande (+15cm)">Grande (+15cm)</option>
         </select>
 
-        <label for="bookZone">Zona del cuerpo:</label>
+<label for="bookZone">Zona del cuerpo:</label>
         <select id="bookZone">
           <option value="Espalda completa">Espalda completa</option>
-          <option value="Brazo 🦾">Brazo 🦾</option>
-          <option value="Pierna 🦵">Pierna 🦵</option>
+<option value="Brazo 🦾">Brazo 🦾</option>
+<option value="Pierna 🦵">Pierna 🦵</option>
         </select>
 
         <label for="bookIdea">Contame tu idea (opcional):</label>
         <textarea id="bookIdea" placeholder="Ej: Quiero un reloj con rosas en el antebrazo..."></textarea>
 
         <button type="submit">
-          <i class="fab fa-whatsapp"></i> Enviar Consulta
+<i class="fab fa-whatsapp"></i> Enviar Consulta
         </button>
       </form>
     </div>
@@ -585,10 +567,10 @@
 
       <div class="map-container">
         <iframe
-          src="https://www.google.com/maps?q=Montevideo,Uruguay&output=embed"
+src="https://www.google.com/maps?q=Montevideo,Uruguay&output=embed"
           allowfullscreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+     referrerpolicy="no-referrer-when-downgrade"
           title="Mapa de Montevideo, Uruguay">
         </iframe>
       </div>
@@ -599,7 +581,7 @@
       </div>
 
       <a href="https://wa.me/59899431568?text=Hola%20Javier,%20quiero%20agendar%20una%20cita" target="_blank" class="btn btn-whatsapp" style="max-width: none; width: 100%; margin-bottom: 12px;">
-        <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+<i class="fab fa-whatsapp"></i> Chatear por WhatsApp
       </a>
     </div>
   </section>
@@ -641,15 +623,13 @@
     </div>
     <div class="footer-bottom">
       <p>© <span id="year-pablo"></span> <strong>JAVIER TATUAJES</strong> — Montevideo, Uruguay</p>
-      <p>TODOS LOS DERECHOS RESERVADOS.</p>
-    </div>
-  </footer>
+<p>TODOS LOS DERECHOS RESERVADOS.</p>
+    </div> </footer>
 
   <div class="float-whatsapp" onclick="toggleChatbot()" aria-label="Abrir chat de consultas">
-    <i class="fas fa-comment-dots"></i>
+<i class="fas fa-comment-dots"></i>
   </div>
-
-  <div class="chatbot-container" id="chatbotContainer">
+ <div class="chatbot-container" id="chatbotContainer">
     <div class="chatbot-header">
       <span><i class="fas fa-comments"></i> Consultas</span>
       <button onclick="toggleChatbot()" aria-label="Cerrar chat">&times;</button>
@@ -657,14 +637,10 @@
     <div class="chatbot-body" id="chatbotBody"></div>
     <div class="chat-input-bar">
       <input type="text" id="chatInput" placeholder="Escribí tu pregunta..." autocomplete="off" onkeydown="if(event.key==='Enter') sendChatMessage()">
-      <button onclick="sendChatMessage()" aria-label="Enviar"><i class="fas fa-paper-plane"></i></button>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('year-pablo').textContent = new Date().getFullYear();
-
-    // --- Menú Superior Desplegable ---
+      <button onclick="sendChatMessage()" aria-label="Enviar"><i class="fas fa-paper-plane"></i></button></div> </div>
+<script>
+document.getElementById('year-pablo').textContent = new Date().getFullYear();
+// --- Menú Superior Desplegable ---
     function toggleMenu() {
       const menu = document.getElementById('dropdownMenu');
       const icon = document.getElementById('menuIcon');
@@ -730,12 +706,10 @@
 
     let startX = 0;
     let endX = 0;
-
-    carouselContainer.addEventListener('touchstart', e => {
+carouselContainer.addEventListener('touchstart', e => {
       startX = e.changedTouches[0].screenX;
     }, {passive: true});
-
-    carouselContainer.addEventListener('touchend', e => {
+carouselContainer.addEventListener('touchend', e => {
       endX = e.changedTouches[0].screenX;
       handleSwipe();
     }, {passive: true});
@@ -794,7 +768,6 @@
     }
 
     function showNextFloatMessage() {
-      // Si hay un mensaje visible, lo sacamos primero
       if (currentFloatEl) {
         const old = currentFloatEl;
         currentFloatEl = null;
@@ -803,7 +776,6 @@
         setTimeout(() => old.remove(), 460);
       }
 
-      // Esperamos a que termine la salida y mostramos el siguiente
       setTimeout(() => {
         const msg = floatMsgs[floatIndex % floatMsgs.length];
         floatIndex++;
@@ -812,27 +784,23 @@
         floatingMessages.appendChild(el);
         currentFloatEl = el;
 
-        void el.offsetWidth; // forzar reflow
+        void el.offsetWidth;
         el.classList.add('show');
 
-        // Programamos la salida a los 3.5 segundos
         clearTimeout(floatTimer);
         floatTimer = setTimeout(showNextFloatMessage, 3500);
       }, 480);
     }
 
-    // Iniciar ciclo cuando carga la página
     window.addEventListener('load', () => {
       setTimeout(showNextFloatMessage, 800);
     });
 
-    // Pausar cuando la pestaña no está visible
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         clearTimeout(floatTimer);
       } else {
         clearTimeout(floatTimer);
-        // Limpiamos y reiniciamos para evitar duplicados
         floatingMessages.innerHTML = '';
         currentFloatEl = null;
         setTimeout(showNextFloatMessage, 600);
@@ -896,65 +864,53 @@
       },
       {
         keywords: ["gracias", "gracia", "ok", "dale", "genial", "perfecto", "buenisimo", "buenísimo"],
-        answer: "¡De nada! 🙌 Si necesitás algo más, escribime. Y si querés coordinar directo, tocá el botón de abajo 👇"
-      },
-      {
+        answer: "¡De nada! 🙌 Si necesitás algo más, escribime. Y si querés coordinar directo, tocá el botón de abajo 👇"},{
         keywords: ["whatsapp", "hablar", "contacto", "contactar", "escribir", "javier", "telefono", "teléfono", "numero", "número"],
-        answer: "Podés escribirme directo por WhatsApp tocando 👉 <a href='" + WHATSAPP_URL + "?text=Hola%20Javier,%20vengo%20del%20chat%20de%20la%20web' target='_blank'>acá</a>.<br><br>📱 <strong>099 431 568</strong>"
-      }
-    ];
-
-    const chatbotBody = document.getElementById('chatbotBody');
+        answer: "Podés escribirme directo por WhatsApp tocando 👉 <a href='" + WHATSAPP_URL + "?text=Hola%20Javier,%20vengo%20del%20chat%20de%20la%20web' target='_blank'>acá</a>.<br><br>📱 <strong>099 431 568</strong>" } ];
+const chatbotBody = document.getElementById('chatbotBody');
     const chatInput = document.getElementById('chatInput');
     let chatInitialized = false;
-
-    function normalizeText(text) {
+ function normalizeText(text) {
       return text
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/[¿?¡!.,;:()"']/g, "")
         .trim();  }
-
-    function findAnswer(userText) {
+ function findAnswer(userText) {
       const normalized = normalizeText(userText);
       if (!normalized) return null;
-
-      let bestMatch = null;
+ let bestMatch = null;
       let bestScore = 0;
-
-      KNOWLEDGE_BASE.forEach(item => {
+  KNOWLEDGE_BASE.forEach(item => {
         let score = 0;
         item.keywords.forEach(kw => {
           const kwNorm = normalizeText(kw);
           if (normalized.includes(kwNorm)) {
-            score += kwNorm.length;
-          }
-        });
+            score += kwNorm.length; } });
         if (score > bestScore) {
           bestScore = score;
-          bestMatch = item;
-        }
-      });
-return bestScore > 0 ? bestMatch.answer : null;
-    }
-
-    function addBubble(text, sender) {
+          bestMatch = item; }  });
+return bestScore > 0 ? bestMatch.answer : null;}
+function addBubble(text, sender) {
       const bubble = document.createElement('div');
-    bubble.className = `chat-bubble ${sender}`;
+bubble.className = `chat-bubble ${sender}`;
       bubble.innerHTML = text;
       chatbotBody.appendChild(bubble);
-      chatbotBody.scrollTop = chatbotBody.scrollHeight; }
- function showTyping() {
+      chatbotBody.scrollTop = chatbotBody.scrollHeight;}
+function showTyping() {
       const typing = document.createElement('div');
       typing.className = 'typing-indicator';
       typing.id = 'typingIndicator';
       typing.innerHTML = '<span></span><span></span><span></span>';
       chatbotBody.appendChild(typing);
-      chatbotBody.scrollTop = chatbotBody.scrollHeight; }
-function hideTyping() {
+      chatbotBody.scrollTop = chatbotBody.scrollHeight;
+    }
+
+    function hideTyping() {
       const typing = document.getElementById('typingIndicator');
-      if (typing) typing.remove(); }
+      if (typing) typing.remove();
+    }
 
     function sendChatMessage() {
       const text = chatInput.value.trim();
@@ -973,21 +929,21 @@ function hideTyping() {
           addBubble(answer, 'bot');
         } else {
           addBubble(
-            "No encontré una respuesta exacta para eso 🤔. Podés preguntarme por <strong>Turnos, Demora, Precios, Ubicación, Estilos, Higiene, Edad, Cuidados</strong> y más.<br><br>O escribime directo por WhatsApp 👇", 'bot' ); }
+            "No encontré una respuesta exacta para eso 🤔. Podés preguntarme por <strong>Turnos, Demora, Precios, Ubicación, Estilos, Higiene, Edad, Cuidados</strong> y más.<br><br>O escribime directo por WhatsApp 👇",'bot'  ); }
 const waBtn = document.createElement('a');
         waBtn.href = `${WHATSAPP_URL}?text=${encodeURIComponent('Hola Javier, vengo del chat de la web. ' + text)}`;
         waBtn.target = '_blank';
         waBtn.className = 'chat-cta-btn';
         waBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Consultar por WhatsApp';
         chatbotBody.appendChild(waBtn);
-        chatbotBody.scrollTop = chatbotBody.scrollHeight;}, 700); }
+        chatbotBody.scrollTop = chatbotBody.scrollHeight; }, 700); }
  function toggleChatbot() {
       const chat = document.getElementById('chatbotContainer');
       const isOpening = chat.style.display !== 'flex';
-chat.style.display = isOpening ?'flex': 'none';
-if (isOpening && !chatInitialized) {
+chat.style.display = isOpening ? 'flex' : 'none';
+ if (isOpening && !chatInitialized) {
         chatInitialized = true;
         addBubble(
-          "👋 Soy el asistente de <strong>Javier</strong>.<br>Escribime tu pregunta y te respondo al toque.",'bot' );
+"👋 Soy el asistente de <strong>Javier</strong>.<br>Escribime tu pregunta y te respondo al toque.",'bot' );
 setTimeout(() => chatInput.focus(), 200);}}
   </script></body></html>
