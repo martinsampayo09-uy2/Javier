@@ -19,708 +19,338 @@
     --gray: #1a1a1a;
     --card-bg: #151515;
     --text-muted: #aaaaaa; }
-    
-    
-    .float-whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #1c1c1c;
-  color: var(--accent);
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.6rem;
-  border: 1px solid #333;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-  z-index: 1001;
-  cursor: pointer;
-  transition: transform 0.3s, background 0.3s, border-color 0.3s;
-}
-.float-whatsapp:hover {
-  transform: scale(1.05);
-  background: #222;
-  border-color: var(--accent);
-}
-    
-    
-    
-    
- * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth; }
- body {
+
+  * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+  body {
     background-color: var(--dark);
     color: var(--light);
     font-family: 'Poppins', sans-serif;
     line-height: 1.5;
     overflow-x: hidden;
-    padding-top: 60px;}
- .top-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
+    padding-top: 60px; }
+  .top-nav {
+    position: fixed; top: 0; left: 0; width: 100%; height: 60px;
     background: rgba(10, 10, 10, 0.98);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid #222;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 18px;
-    z-index: 1100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 18px; z-index: 1100;
     box-shadow: 0 2px 15px rgba(0,0,0,0.8); }
-.top-nav .brand {
+  .top-nav .brand {
     font-family: 'Permanent Marker', cursive;
-    font-size: 1.2rem;
-    color: var(--accent);
-    letter-spacing: 1px;
-    text-decoration: none; }
- .menu-toggle {
-    background: none;
-    border: none;
-    color: var(--accent);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.2rem; color: var(--accent);
+    letter-spacing: 1px; text-decoration: none; }
+  .menu-toggle {
+    background: none; border: none; color: var(--accent);
+    font-size: 1.5rem; cursor: pointer; padding: 6px;
+    display: flex; align-items: center; justify-content: center;
     transition: transform 0.3s; }
   .menu-toggle:active { transform: scale(0.9); }
-.dropdown-menu {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
+  .dropdown-menu {
+    position: fixed; top: 60px; left: 0; width: 100%;
     background: rgba(15, 15, 15, 0.99);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid #222;
-    max-height: 0;
-    overflow: hidden;
+    max-height: 0; overflow: hidden;
     transition: max-height 0.4s ease;
     z-index: 1099;
     box-shadow: 0 8px 25px rgba(0,0,0,0.9); }
   .dropdown-menu.open { max-height: 500px; }
   .dropdown-menu ul { list-style: none; padding: 10px 0; }
   .dropdown-menu li a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 15px 24px;
-    color: var(--light);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
+    display: flex; align-items: center; gap: 12px;
+    padding: 15px 24px; color: var(--light);
+    text-decoration: none; font-size: 0.95rem; font-weight: 500;
     border-left: 3px solid transparent;
     transition: background 0.3s, color 0.3s, border-color 0.3s; }
   .dropdown-menu li a i {
-    color: var(--accent);
-    width: 20px;
-    text-align: center;
-    font-size: 1rem; }
+    color: var(--accent); width: 20px; text-align: center; font-size: 1rem; }
   .dropdown-menu li a:hover,
   .dropdown-menu li a:active {
     background: rgba(198, 240, 79, 0.08);
-    color: var(--accent);
-    border-left-color: var(--accent); }
- header.hero {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background: var(--dark); }
- .hero-image {
-    width: 100%;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: hidden;
-    line-height: 0;  }
-  .hero-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain; }
+    color: var(--accent); border-left-color: var(--accent); }
+  header.hero { display: flex; flex-direction: column; width: 100%; background: var(--dark); }
+  .hero-image {
+    width: 100%; background-color: #000;
+    display: flex; justify-content: center; align-items: flex-start;
+    overflow: hidden; line-height: 0; }
+  .hero-image img { width: 100%; height: auto; display: block; object-fit: contain; }
   .hero-text {
     width: 100%;
     background: linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 30px 15px 40px;
-    border-bottom: 1px solid #1a1a1a;}
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 30px 15px 40px;
+    border-bottom: 1px solid #1a1a1a; }
   .hero-text h1 {
     font-family: 'Permanent Marker', cursive;
-    font-size: 3.2rem;
-    margin-bottom: 0px;
-    color: var(--light);
-    line-height: 1;
-    transform: rotate(-3deg);
-    text-shadow: 2px 2px 0px #000;  }
- .hero-text h2 {
+    font-size: 3.2rem; margin-bottom: 0px; color: var(--light);
+    line-height: 1; transform: rotate(-3deg); text-shadow: 2px 2px 0px #000; }
+  .hero-text h2 {
     font-family: 'Permanent Marker', cursive;
-    font-size: 2rem;
-    color: var(--light);
-    transform: rotate(-3deg);
-    margin-bottom: 18px;
-    text-shadow: 2px 2px 0px #000;  }
- .hero-text p {
-    font-size: 0.85rem;
-    margin-bottom: 22px;
-    color: #ddd;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 700;
-    border-top: 2px solid var(--light);
-    border-bottom: 2px solid var(--light);
+    font-size: 2rem; color: var(--light); transform: rotate(-3deg);
+    margin-bottom: 18px; text-shadow: 2px 2px 0px #000; }
+  .hero-text p {
+    font-size: 0.85rem; margin-bottom: 22px; color: #ddd;
+    text-transform: uppercase; letter-spacing: 2px; font-weight: 700;
+    border-top: 2px solid var(--light); border-bottom: 2px solid var(--light);
     padding: 5px 10px; }
   .hero-btns {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 500px;  }
- .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    flex: 1;
-    max-width: 200px; }
- .btn-whatsapp {
-    background-color: var(--accent);
-    color: #000;
-box-shadow:0 4px 15px rgba(198,240,79,0.3);}
+    display: flex; gap: 10px; width: 100%; justify-content: center;
+    flex-wrap: wrap; max-width: 500px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 20px; border-radius: 50px; text-decoration: none;
+    font-weight: bold; font-size: 0.9rem; transition: all 0.3s ease;
+    border: none; cursor: pointer; flex: 1; max-width: 200px; }
+  .btn-whatsapp {
+    background-color: var(--accent); color: #000;
+    box-shadow:0 4px 15px rgba(198,240,79,0.3);}
   .btn-whatsapp:hover { background-color: var(--accent-hover); }
- .btn-maps {
-    background-color: transparent;
-    color: var(--light);
+  .btn-maps {
+    background-color: transparent; color: var(--light);
     border: 1px solid var(--accent);
-box-shadow:0 4px 15px rgba(198,240,79,0.1);}
+    box-shadow:0 4px 15px rgba(198,240,79,0.1);}
   .btn-maps:hover { background-color: rgba(198, 240, 79, 0.1); }
-section {
-    padding: 40px 15px;
-    max-width: 1200px;
-    margin: 0 auto;}
- h2.section-title {
-    text-align: center;
-    font-size: 1.6rem;
-    margin-bottom: 25px;
-    color: var(--light);
-    text-transform: uppercase;
-    letter-spacing: 1px;}
+  section { padding: 40px 15px; max-width: 1200px; margin: 0 auto; }
+  h2.section-title {
+    text-align: center; font-size: 1.6rem; margin-bottom: 25px;
+    color: var(--light); text-transform: uppercase; letter-spacing: 1px; }
   h2.section-title::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: var(--accent);
-    margin: 8px auto 0;
-    border-radius: 2px; }
+    content: ''; display: block; width: 50px; height: 3px;
+    background: var(--accent); margin: 8px auto 0; border-radius: 2px; }
   .carousel-container {
-    position: relative;
-    max-width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.8);
-    border: 1px solid #222;
-    touch-action: pan-y; }
-.carousel-slide {
-    display: flex;
-    transition: transform 0.4s ease-out;}
-.carousel-slide img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    flex-shrink: 0; }
- .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.6);
-    color: var(--accent);
-    border: none;
-    padding: 12px 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    z-index: 10; }
+    position: relative; max-width: 100%; margin: 0 auto; overflow: hidden;
+    border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+    border: 1px solid #222; touch-action: pan-y; }
+  .carousel-slide { display: flex; transition: transform 0.4s ease-out;}
+  .carousel-slide img {
+    width: 100%; height: 350px; object-fit: cover; flex-shrink: 0; }
+  .carousel-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(0,0,0,0.6); color: var(--accent);
+    border: none; padding: 12px 10px; cursor: pointer;
+    font-size: 1rem; z-index: 10; }
   .prev { left: 0; border-radius: 0 5px 5px 0; }
-.next { right: 0; border-radius: 5px 0 0 5px; }
-.scroll-carousel {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
+  .next { right: 0; border-radius: 5px 0 0 5px; }
+  .scroll-carousel {
+    display: flex; gap: 15px; overflow-x: auto;
+    scroll-snap-type: x mandatory; padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   .scroll-carousel::-webkit-scrollbar { display: none; }
-
   .scroll-item {
-    flex: 0 0 85%;
-    scroll-snap-align: center;
-    background: var(--card-bg);
-    padding: 25px 20px;
-    border-radius: 12px;
-    border: 1px solid #222;
-    text-align: center;}
- .scroll-item i {
-    font-size: 2.2rem;
-    color: var(--accent);
-    margin-bottom: 10px; }
+    flex: 0 0 85%; scroll-snap-align: center;
+    background: var(--card-bg); padding: 25px 20px;
+    border-radius: 12px; border: 1px solid #222; text-align: center;}
+  .scroll-item i {
+    font-size: 2.2rem; color: var(--accent); margin-bottom: 10px; }
   .scroll-item h3 { font-size: 1.1rem; margin-bottom: 8px; }
   .scroll-item p { font-size: 0.85rem; color: var(--text-muted); }
   .booking-section {
-    background: var(--card-bg);
-    border: 1px solid #222;
-    border-radius: 12px;
-    padding: 25px 20px;
-    max-width: 600px;
-    margin: 20px auto;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
- .booking-form label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: var(--accent);
-    font-size: 0.9rem; }
+    background: var(--card-bg); border: 1px solid #222;
+    border-radius: 12px; padding: 25px 20px; max-width: 600px;
+    margin: 20px auto; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
+  .booking-form label {
+    display: block; margin-bottom: 6px; font-weight: bold;
+    color: var(--accent); font-size: 0.9rem; }
   .booking-form input, .booking-form select, .booking-form textarea {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 15px;
-    background: #0a0a0a;
-    border: 1px solid #333;
-    color: white;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    color-scheme: dark;
+    width: 100%; padding: 10px 12px; margin-bottom: 15px;
+    background: #0a0a0a; border: 1px solid #333; color: white;
+    border-radius: 8px; font-size: 0.9rem; color-scheme: dark;
     font-family: 'Poppins', sans-serif; }
   .booking-form textarea { resize: vertical; height: 80px; }
- .booking-form button {
-    width: 100%;
-    background: var(--accent);
-    color: #000;
-    border: none;
-    padding: 14px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  .booking-form button {
+    width: 100%; background: var(--accent); color: #000;
+    border: none; padding: 14px; border-radius: 50px;
+    font-weight: 700; font-size: 1rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
     box-shadow: 0 4px 15px rgba(198, 240, 79, 0.3);
-    transition: background 0.3s;  }
+    transition: background 0.3s; }
   .booking-form button:hover { background: var(--accent-hover); }
   .info-section {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 25px 15px;
-    text-align: center;
-    border: 1px solid #222;  }
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;  }
- .info-item {
-    background: #0a0a0a;
-    padding: 15px 8px;
-    border-radius: 8px;
-    border: 1px solid #222;}
- .info-item i {
-    color: var(--accent);
-    font-size: 1.4rem;
-    margin-bottom: 6px;
-    display: block; }
+    background: var(--card-bg); border-radius: 12px;
+    padding: 25px 15px; text-align: center; border: 1px solid #222; }
+  .info-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 10px; margin-bottom: 20px; }
+  .info-item {
+    background: #0a0a0a; padding: 15px 8px;
+    border-radius: 8px; border: 1px solid #222;}
+  .info-item i {
+    color: var(--accent); font-size: 1.4rem; margin-bottom: 6px; display: block; }
   .info-item p { font-size: 0.85rem; font-weight: bold; margin: 0; }
   .info-item span { font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 2px; }
   .full-width { grid-column: span 2; }
-
   .social-links { margin-bottom: 20px; }
   .social-links a {
-    color: var(--light);
-    font-size: 1.6rem;
-    margin: 0 10px;
-    transition: color 0.3s;
-    display: inline-block;
-  }
+    color: var(--light); font-size: 1.6rem; margin: 0 10px;
+    transition: color 0.3s; display: inline-block; }
   .social-links a:hover { color: var(--accent); }
   .map-container {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #222;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);  }
+    border-radius: 12px; overflow: hidden; border: 1px solid #222;
+    margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
   .map-container iframe {
-    width: 100%;
-    height: 220px;
-    border: 0;
-    display: block;
+    width: 100%; height: 220px; border: 0; display: block;
     filter: grayscale(0.3) invert(0.9) hue-rotate(180deg);}
   .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(6px);
-    z-index: 2000;
-    padding: 20px;
-    overflow-y: auto;
-    align-items: center;
-    justify-content: center;
-  }
+    display: none; position: fixed; inset: 0;
+    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(6px);
+    z-index: 2000; padding: 20px; overflow-y: auto;
+    align-items: center; justify-content: center; }
   .modal-overlay.active { display: flex; }
-
   .modal-box {
-    background: #151515;
-    border: 1px solid #333;
-    border-top: 3px solid var(--accent);
-    border-radius: 14px;
-    max-width: 600px;
-    width: 100%;
-    max-height: 85vh;
-    overflow-y: auto;
-    padding: 25px 22px;
-    position: relative;
+    background: #151515; border: 1px solid #333;
+    border-top: 3px solid var(--accent); border-radius: 14px;
+    max-width: 600px; width: 100%; max-height: 85vh;
+    overflow-y: auto; padding: 25px 22px; position: relative;
     box-shadow: 0 20px 60px rgba(0,0,0,0.9);
-    animation: modalIn 0.3s ease;
-  }
+    animation: modalIn 0.3s ease; }
   @keyframes modalIn {
     from { opacity: 0; transform: translateY(20px) scale(0.97); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
+    to { opacity: 1; transform: translateY(0) scale(1); } }
   .modal-close {
-    position: absolute;
-    top: 12px;
-    right: 14px;
-    background: none;
-    border: none;
-    color: var(--accent);
-    font-size: 1.6rem;
-    cursor: pointer;
-    line-height: 1;
-    padding: 4px;
-  }
+    position: absolute; top: 12px; right: 14px;
+    background: none; border: none; color: var(--accent);
+    font-size: 1.6rem; cursor: pointer; line-height: 1; padding: 4px; }
   .modal-close:hover { color: #fff; }
-
   .modal-box h3 {
-    font-family: 'Permanent Marker', cursive;
-    color: var(--accent);
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-  }
+    font-family: 'Permanent Marker', cursive; color: var(--accent);
+    font-size: 1.3rem; margin-bottom: 15px; letter-spacing: 1px; }
   .modal-box p {
-    font-size: 0.85rem;
-    color: #cccccc;
-    line-height: 1.7;
-    margin-bottom: 12px; }
+    font-size: 0.85rem; color: #cccccc; line-height: 1.7; margin-bottom: 12px; }
   .modal-box strong { color: #fff; }
-  .float-whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--accent);
-    color: #000;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
-box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
-    z-index: 1001;
-    cursor: pointer;
-    transition: transform 0.3s;  }
-  .float-whatsapp:hover { transform: scale(1.05); }
-.chatbot-container {
-    position: fixed;
-    bottom: 85px;
-    right: 20px;
-    width: 320px;
-    max-width: calc(100vw - 40px);
-    background: #151515;
-    border: 1px solid #333;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.9);
-    z-index: 1002;
-    display: none;
-    flex-direction: column;
-    overflow: hidden; }
-  .chatbot-header {
-    background: var(--accent);
-    color: #000;
-    padding: 12px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-family: 'Permanent Marker', cursive;
-    letter-spacing: 1px; }
-  .chatbot-header button {
-    background: none;
-    border: none;
-    color: #000;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
 
-  /* ===== ESTILOS CHATBOT CONVERSACIONAL ===== */
+  .float-whatsapp {
+    position: fixed; bottom: 20px; right: 20px;
+    background-color: var(--accent); color: #000;
+    width: 55px; height: 55px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 1.8rem;
+    box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
+    z-index: 1001; cursor: pointer;
+    transition: transform 0.3s; }
+  .float-whatsapp:hover { transform: scale(1.05); }
+
+  .chatbot-container {
+    position: fixed; bottom: 85px; right: 20px; width: 320px;
+    max-width: calc(100vw - 40px); background: #151515;
+    border: 1px solid #333; border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.9);
+    z-index: 1002; display: none; flex-direction: column; overflow: hidden; }
+  .chatbot-header {
+    background: var(--accent); color: #000;
+    padding: 12px 15px; display: flex; justify-content: space-between;
+    align-items: center; font-weight: bold;
+    font-family: 'Permanent Marker', cursive; letter-spacing: 1px; }
+  .chatbot-header button {
+    background: none; border: none; color: #000;
+    font-size: 1.2rem; cursor: pointer; }
   .chatbot-body {
-    padding: 12px;
-    height: 340px;
-    overflow-y: auto;
-    font-size: 0.85rem;
-    background: #101010;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+    padding: 12px; height: 340px; overflow-y: auto;
+    font-size: 0.85rem; background: #101010;
+    display: flex; flex-direction: column; gap: 10px; }
   .chat-bubble {
-    max-width: 85%;
-    padding: 10px 13px;
-    border-radius: 14px;
-    line-height: 1.5;
-    font-size: 0.84rem;
-    animation: fadeInBubble 0.25s ease;
-    word-wrap: break-word;
-  }
+    max-width: 85%; padding: 10px 13px; border-radius: 14px;
+    line-height: 1.5; font-size: 0.84rem;
+    animation: fadeInBubble 0.25s ease; word-wrap: break-word; }
   @keyframes fadeInBubble {
     from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+    to { opacity: 1; transform: translateY(0); } }
   .chat-bubble.bot {
-    background: #222;
-    color: #e6e6e6;
-    align-self: flex-start;
-    border-bottom-left-radius: 4px;
-  }
+    background: #222; color: #e6e6e6; align-self: flex-start;
+    border-bottom-left-radius: 4px; }
   .chat-bubble.user {
-    background: var(--accent);
-    color: #000;
-    align-self: flex-end;
-    border-bottom-right-radius: 4px;
-    font-weight: 500;
-  }
+    background: var(--accent); color: #000; align-self: flex-end;
+    border-bottom-right-radius: 4px; font-weight: 500; }
   .chat-bubble a { color: var(--accent); font-weight: 700; text-decoration: none; }
   .chat-bubble.user a { color: #000; text-decoration: underline; }
   .chat-bubble.bot strong { color: var(--accent); }
 
-  .chat-quick-hints {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    padding: 8px 12px;
-    border-top: 1px solid #222;
-    background: #0d0d0d;
-  }
-  .chat-hint {
-    background: #1c1c1c;
-    border: 1px solid #333;
-    color: #bbb;
-    font-size: 0.7rem;
-    padding: 5px 9px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: 'Poppins', sans-serif;
-  }
-  .chat-hint:hover {
-    background: rgba(198, 240, 79, 0.12);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
   .chat-input-bar {
-    display: flex;
-    border-top: 1px solid #222;
-    background: #151515;
-  }
+    display: flex; border-top: 1px solid #222; background: #151515; }
   .chat-input-bar input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    padding: 12px 14px;
-    color: #fff;
-    font-size: 0.85rem;
-    font-family: 'Poppins', sans-serif;
-    outline: none;
-  }
+    flex: 1; background: transparent; border: none;
+    padding: 12px 14px; color: #fff; font-size: 0.85rem;
+    font-family: 'Poppins', sans-serif; outline: none; }
   .chat-input-bar input::placeholder { color: #666; }
   .chat-input-bar button {
-    background: var(--accent);
-    border: none;
-    color: #000;
-    width: 48px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
+    background: var(--accent); border: none; color: #000;
+    width: 48px; font-size: 1rem; cursor: pointer;
+    transition: background 0.2s; }
   .chat-input-bar button:hover { background: var(--accent-hover); }
   .chat-input-bar button:active { transform: scale(0.95); }
 
   .typing-indicator {
-    align-self: flex-start;
-    background: #222;
-    padding: 12px 16px;
-    border-radius: 14px;
-    border-bottom-left-radius: 4px;
-    display: flex;
-    gap: 4px;
-  }
+    align-self: flex-start; background: #222;
+    padding: 12px 16px; border-radius: 14px;
+    border-bottom-left-radius: 4px; display: flex; gap: 4px; }
   .typing-indicator span {
-    width: 7px; height: 7px;
-    background: #777;
-    border-radius: 50%;
-    animation: blink 1.2s infinite;
-  }
+    width: 7px; height: 7px; background: #777;
+    border-radius: 50%; animation: blink 1.2s infinite; }
   .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
   .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
   @keyframes blink {
     0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
-    30% { opacity: 1; transform: translateY(-3px); }
-  }
+    30% { opacity: 1; transform: translateY(-3px); } }
   .chat-cta-btn {
-    display: block;
-    width: 100%;
-    background: var(--accent);
-    color: #000;
-    border: none;
-    padding: 11px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.82rem;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    margin-top: 4px;
-    transition: background 0.3s;
-    font-family: 'Poppins', sans-serif;
-  }
+    display: block; width: 100%; background: var(--accent);
+    color: #000; border: none; padding: 11px; border-radius: 8px;
+    font-weight: 700; font-size: 0.82rem; cursor: pointer;
+    text-align: center; text-decoration: none; margin-top: 4px;
+    transition: background 0.3s; font-family: 'Poppins', sans-serif; }
   .chat-cta-btn:hover { background: var(--accent-hover); }
 
   .site-footer {
-    background-color: var(--primary);
-    color: #ffffff;
+    background-color: var(--primary); color: #ffffff;
     padding: 2rem 1.5rem 1rem;
-    border-top: 3px solid var(--accent);
-    text-align: left;
-  }
+    border-top: 3px solid var(--accent); text-align: left; }
   .footer-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    align-items: start;
-  }
+    max-width: 1100px; margin: 0 auto; display: grid;
+    grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
   .footer-brand-logo {
-    font-family: 'Permanent Marker', cursive;
-    font-size: 1.15rem;
-    color: var(--accent);
-    letter-spacing: 1px;
-    display: inline-block;
-    margin-bottom: 4px;
-  }
+    font-family: 'Permanent Marker', cursive; font-size: 1.15rem;
+    color: var(--accent); letter-spacing: 1px;
+    display: inline-block; margin-bottom: 4px; }
   .footer-brand-logo span { color: #fff; }
   .footer-tagline {
-    font-size: 0.75rem;
-    line-height: 1.6;
-    color: #cccccc;
-    margin-top: 10px;
-    margin-bottom: 1rem;
-  }
+    font-size: 0.75rem; line-height: 1.6; color: #cccccc;
+    margin-top: 10px; margin-bottom: 1rem; }
   .footer-col h4 {
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-bottom: 0.6rem;
-    position: relative;
-    padding-bottom: 6px;
-    display: inline-block;
-  }
+    color: #ffffff; font-size: 0.8rem; font-weight: 700;
+    margin-bottom: 0.6rem; position: relative;
+    padding-bottom: 6px; display: inline-block; }
   .footer-col h4::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 22px;
-    height: 2px;
-    background: var(--accent);
-    border-radius: 2px;
-  }
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 22px; height: 2px; background: var(--accent); border-radius: 2px; }
   .footer-legal-btn {
-    background: none;
-    border: none;
-    display: block;
-    font-size: 0.75rem;
-    color: #dbe5ee;
-    font-weight: 500;
-    padding: 0.25rem 0;
-    cursor: pointer;
-    text-align: left;
-    font-family: inherit;
-    transition: color 0.3s;
-  }
+    background: none; border: none; display: block;
+    font-size: 0.75rem; color: #dbe5ee; font-weight: 500;
+    padding: 0.25rem 0; cursor: pointer; text-align: left;
+    font-family: inherit; transition: color 0.3s; }
   .footer-legal-btn:hover { color: var(--accent); }
   .footer-legal-btn b { font-weight: 700; }
-
   .footer-bottom {
-    max-width: 1100px;
-    margin: 1.5rem auto 0;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
-    font-size: 0.7rem;
-    color: #8ba0b4;
-    letter-spacing: 0.5px;
-  }
+    max-width: 1100px; margin: 1.5rem auto 0;
+    padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center; font-size: 0.7rem; color: #8ba0b4;
+    letter-spacing: 0.5px; }
   .footer-bottom strong { color: var(--accent); }
   .footer-bottom p { margin-bottom: 4px; }
+
   @media (min-width: 769px) {
     .hero-text h1 { font-size: 4.5rem; }
     .hero-text h2 { font-size: 3rem; }
     .carousel-slide img { height: 500px; }
-.scroll-carousel {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      overflow: visible;
-    }
+    .scroll-carousel {
+      display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; }
     .scroll-item { flex: none; }
-
     .info-grid { grid-template-columns: repeat(4, 1fr); }
     .full-width { grid-column: span 1; }
-
     .map-container iframe { height: 280px; } }
   @media (max-width: 480px) {
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
     .footer-brand-logo { font-size: 1rem; }
     .hero-text h1 { font-size: 2.8rem; }
-    .hero-text h2 { font-size: 1.8rem; }  }
+    .hero-text h2 { font-size: 1.8rem; } }
 </style>
 </head>
 <body>
@@ -728,9 +358,10 @@ box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
     <a href="#" class="brand">JAVIER</a>
     <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
       <i class="fas fa-bars" id="menuIcon"></i>
-    </button>  </nav>
- <div class="dropdown-menu" id="dropdownMenu">
- <ul>
+    </button>
+  </nav>
+  <div class="dropdown-menu" id="dropdownMenu">
+    <ul>
       <li><a href="#" onclick="closeMenu()"><i class="fas fa-home"></i> Inicio</a></li>
       <li><a href="#galeria" onclick="closeMenu()"><i class="fas fa-images"></i> Galería</a></li>
       <li><a href="#servicios" onclick="closeMenu()"><i class="fas fa-info-circle"></i> ¿Por qué elegirme?</a></li>
@@ -740,14 +371,18 @@ box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
       <li><a href="#" onclick="abrirModal('modal-terminos'); closeMenu(); return false;"><i class="fas fa-file-contract"></i> Términos y Condiciones</a></li>
     </ul>
   </div>
- <header class="hero">
- <div class="hero-image">
-      <img src="https://i.ibb.co/B2MM5F8c/Screenshot-20261027-141641-Photos.jpg" alt="Javier Tatuador - Presentación"></div>
-<div class="hero-text">
+
+  <header class="hero">
+    <div class="hero-image">
+      <img src="https://i.ibb.co/B2MM5F8c/Screenshot-20261027-141641-Photos.jpg" alt="Javier Tatuador - Presentación">
+    </div>
+    <div class="hero-text">
       <h1>JAVIER</h1>
       <h2>TATUADOR</h2>
       <p>Arte en tu piel, donde vos estés</p>
-<div class="hero-btns"> </div> </div></header>
+    </div>
+  </header>
+
   <section id="galeria">
     <h2 class="section-title">Mis Trabajos</h2>
     <div class="carousel-container" id="carouselContainer">
@@ -755,13 +390,15 @@ box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
       <div class="carousel-slide" id="carousel">
         <img src="https://i.ibb.co/YF8zWx77/Screenshot-20261027-141624-Photos.jpg" alt="Tatuaje Blackwork">
         <img src="https://i.ibb.co/YF8zWx77/Screenshot-20261027-141624-Photos.jpg" alt="Tatuaje Realismo">
-        <img src="https://i.ibb.co/YF8zWx77/Screenshot-20261027-141624-Photos.jpg " alt="Tatuaje ">
-        <img src=" https://i.ibb.co/YF8zWx77/Screenshot-20261027-141624-Photos.jpg " alt="Tatuaje Japonés">
+        <img src="https://i.ibb.co/YF8zWx77/Screenshot-20261027-141624-Photos.jpg" alt="Tatuaje">
+        <img src="https://i.ibb.co/YF8zWx77/Screenshot-20261027-141624-Photos.jpg" alt="Tatuaje Japonés">
       </div>
       <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-    </div></section>
-<section id="servicios">
-<h2 class="section-title">Por qué elegirme?</h2>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <h2 class="section-title">Por qué elegirme?</h2>
     <div class="scroll-carousel">
       <div class="scroll-item">
         <i class="fa-solid fa-house"></i>
@@ -769,7 +406,7 @@ box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
         <p>Me traslado a tu espacio para que te sientas cómodo y relajado.</p>
       </div>
       <div class="scroll-item">
-     <i class="fa-solid fa-shield-halved"></i>
+        <i class="fa-solid fa-shield-halved"></i>
         <h3>Máxima Higiene</h3>
         <p>Material descartable y esterilización bajo estrictas normas de seguridad.</p>
       </div>
@@ -786,46 +423,40 @@ box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
     </div>
   </section>
 
-
   <section id="reserva">
- <h2 class="section-title">Reserva Rápida</h2>
+    <h2 class="section-title">Reserva Rápida</h2>
     <div class="booking-section">
-      <form class="booking-form" onsubmit="sendBookingForm(event)">
+      <form class="booking-form" id="bookingForm" onsubmit="sendBookingForm(event)">
         <label for="bookName">Nombre:</label>
         <input type="text" id="bookName" required placeholder="Ej: Juan Pérez">
 
         <label for="bookAddress">Dirección:</label>
         <input type="text" id="bookAddress" required placeholder="Ej: La Paz 1210, Centro">
 
-        <label for="bookStyle">Estilo:</label>
-        <select id="bookStyle">
-          <option value="Tradicional">Tradicional</option>
-          <option value="Blackwork">Blackwork</option>
-          <option value="Realismo">Realismo</option>
-          <option value="Japonés">Japonés</option>
-          <option value="Chicano">Chicano</option>
-          <option value="Black & Grey">Black & Grey</option>
-          <option value="Otro / A definir">Otro / A definir</option>
-        </select>
-
         <label for="bookSize">Tamaño Aproximado:</label>
         <select id="bookSize">
           <option value="Pequeño (hasta 5cm)">Pequeño (hasta 5cm)</option>
           <option value="Mediano (5cm a 15cm)">Mediano (5cm a 15cm)</option>
           <option value="Grande (+15cm)">Grande (+15cm)</option>
-          <option value="Manga / Espalda completa">Manga / Espalda completa</option>
+        </select>
+
+        <label for="bookZone">Zona del cuerpo:</label>
+        <select id="bookZone">
+          <option value="Espalda completa">Espalda completa</option>
+          <option value="Brazo 🦾">Brazo 🦾</option>
+          <option value="Pierna 🦵">Pierna 🦵</option>
         </select>
 
         <label for="bookIdea">Contame tu idea (opcional):</label>
         <textarea id="bookIdea" placeholder="Ej: Quiero un reloj con rosas en el antebrazo..."></textarea>
- <button type="submit">
-<i class="fab fa-whatsapp"></i> Enviar Consulta
+
+        <button type="submit">
+          <i class="fab fa-whatsapp"></i> Enviar Consulta
         </button>
       </form>
     </div>
   </section>
 
-  <!-- Sección de Contacto / Ubicación -->
   <section id="contacto">
     <div class="info-section">
       <h2 class="section-title">Dónde Estoy</h2>
@@ -848,7 +479,6 @@ box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
         </div>
       </div>
 
-      <!-- MAPA DE MONTEVIDEO -->
       <div class="map-container">
         <iframe
           src="https://www.google.com/maps?q=Montevideo,Uruguay&output=embed"
@@ -860,12 +490,12 @@ box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
       </div>
 
       <div class="social-links">
-        <a href="      " target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/59899431568" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
 
       <a href="https://wa.me/59899431568?text=Hola%20Javier,%20quiero%20agendar%20una%20cita" target="_blank" class="btn btn-whatsapp" style="max-width: none; width: 100%; margin-bottom: 12px;">
-<i class="fab fa-whatsapp"></i>Chatear por WhatsApp
+        <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
       </a>
     </div>
   </section>
@@ -893,35 +523,27 @@ box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
     </div>
   </div>
 
-
-  <!-- ===== FOOTER 2 COLUMNAS ===== -->
   <footer class="site-footer">
     <div class="footer-grid">
-      <!-- Columna Izquierda: Marca -->
       <div class="footer-col">
         <span class="footer-brand-logo">✒️ JAVIER <span>TATUADOR</span></span>
         <p class="footer-tagline">Tatuajes a domicilio en Montevideo y alrededores. Arte en tu piel, donde vos estés.</p>
       </div>
-
-      <!-- Columna Derecha: Legal -->
       <div class="footer-col">
         <h4>Legal</h4>
         <button class="footer-legal-btn" onclick="abrirModal('modal-privacidad')"><b>Política de privacidad</b></button>
         <button class="footer-legal-btn" onclick="abrirModal('modal-terminos')"><b>Términos y condiciones</b></button>
       </div>
     </div>
-
     <div class="footer-bottom">
       <p>© <span id="year-pablo"></span> <strong>JAVIER TATUAJES</strong> — Montevideo, Uruguay</p>
       <p>TODOS LOS DERECHOS RESERVADOS.</p>
     </div>
   </footer>
 
-<!-- ===== BOTÓN FLOTANTE CHAT (abre chatbot) ===== -->
-<div class="float-whatsapp" onclick="toggleChatbot()" aria-label="Abrir chat de consultas">
-  <i class="fas fa-comment-dots"></i>
-</div>
-
+  <div class="float-whatsapp" onclick="toggleChatbot()" aria-label="Abrir chat de consultas">
+    <i class="fas fa-comment-dots"></i>
+  </div>
 
   <div class="chatbot-container" id="chatbotContainer">
     <div class="chatbot-header">
@@ -929,7 +551,6 @@ box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
       <button onclick="toggleChatbot()" aria-label="Cerrar chat">&times;</button>
     </div>
     <div class="chatbot-body" id="chatbotBody"></div>
-    
     <div class="chat-input-bar">
       <input type="text" id="chatInput" placeholder="Escribí tu pregunta..." autocomplete="off" onkeydown="if(event.key==='Enter') sendChatMessage()">
       <button onclick="sendChatMessage()" aria-label="Enviar"><i class="fas fa-paper-plane"></i></button>
@@ -937,7 +558,7 @@ box-shadow: 0 6px 20px rgba(198, 240, 79, 0.4);
   </div>
 
   <script>
-document.getElementById('year-pablo').textContent = new Date().getFullYear();
+    document.getElementById('year-pablo').textContent = new Date().getFullYear();
 
     // --- Menú Superior Desplegable ---
     function toggleMenu() {
@@ -1022,24 +643,30 @@ document.getElementById('year-pablo').textContent = new Date().getFullYear();
 
     setInterval(() => moveSlide(1), 5000);
 
-    // --- Envío de Formulario Central ---
+    // --- Envío de Formulario Central (CORREGIDO) ---
     const WHATSAPP_NUMBER = "59899431568";
 
     function sendBookingForm(e) {
       e.preventDefault();
-      const name = document.getElementById('bookName').value;
-      const address = document.getElementById('bookAddress').value;
-      const style = document.getElementById('bookStyle').value;
+      const name = document.getElementById('bookName').value.trim();
+      const address = document.getElementById('bookAddress').value.trim();
       const size = document.getElementById('bookSize').value;
-      const idea = document.getElementById('bookIdea').value || "A coordinar";
+      const zone = document.getElementById('bookZone').value;
+      const idea = document.getElementById('bookIdea').value.trim() || "A coordinar";
 
-      const text = `Hola Javier, soy *${name}*. Quiero agendar un tatuaje a domicilio.\n\n*Dirección:* ${address}\n*Estilo:* ${style}\n*Tamaño:* ${size}\n*Idea:* ${idea}`;
+      const text = `Hola Javier, soy *${name}*. Quiero agendar un tatuaje a domicilio.\n\n*Dirección:* ${address}\n*Zona del cuerpo:* ${zone}\n*Tamaño:* ${size}\n*Idea:* ${idea}`;
       const encodedText = encodeURIComponent(text);
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`, '_blank'); }
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
-const KNOWLEDGE_BASE = [ {
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`, '_blank');
+    }
+
+    // --- Chatbot ---
+    const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+    const KNOWLEDGE_BASE = [
+      {
         keywords: ["turno", "agendar", "agenda", "cita", "reservar", "reserva", "dia", "horario", "cuando", "cuándo"],
-        answer: "Para agendar un turno podés:<br><br>📝 Completar el formulario de <strong>Reserva Rápida</strong> en la web.<br>💬 Escribirme directo por WhatsApp.<br><br>Necesito: nombre, zona/dirección, estilo, tamaño e idea. ¡Te respondo al toque!"   }, {
+        answer: "Para agendar un turno podés:<br><br>📝 Completar el formulario de <strong>Reserva Rápida</strong> en la web.<br>💬 Escribirme directo por WhatsApp.<br><br>Necesito: nombre, zona/dirección, estilo, tamaño e idea. ¡Te respondo al toque!"
+      },
+      {
         keywords: ["precio", "cuanto", "cuánto", "sale", "cuesta", "costo", "valor", "tarifa", "plata", "pagar"],
         answer: "El precio depende del <strong>tamaño, estilo, zona del cuerpo y detalles</strong>. Para darte un presupuesto exacto necesito ver tu idea.<br><br>Mandame una referencia o contame bien qué querés y te paso el valor sin compromiso 😉"
       },
@@ -1085,7 +712,8 @@ const KNOWLEDGE_BASE = [ {
       },
       {
         keywords: ["hola", "buenas", "buen dia", "buen día", "hey", "saludos", "que tal", "qué tal"],
-        answer: "¡Hola👋 Soy el asistente de Javier. Preguntame lo que quieras o directo por WhatsApp."},
+        answer: "¡Hola👋 Soy el asistente de Javier. Preguntame lo que quieras o directo por WhatsApp."
+      },
       {
         keywords: ["gracias", "gracia", "ok", "dale", "genial", "perfecto", "buenisimo", "buenísimo"],
         answer: "¡De nada! 🙌 Si necesitás algo más, escribime. Y si querés coordinar directo, tocá el botón de abajo 👇"
@@ -1130,7 +758,7 @@ const KNOWLEDGE_BASE = [ {
         }
       });
 
-return bestScore > 0 ? bestMatch.answer : null;
+      return bestScore > 0 ? bestMatch.answer : null;
     }
 
     function addBubble(text, sender) {
@@ -1172,9 +800,12 @@ return bestScore > 0 ? bestMatch.answer : null;
           addBubble(answer, 'bot');
         } else {
           addBubble(
-            "No encontré una respuesta exacta para eso 🤔. Podés preguntarme por <strong>Turnos,Demora, Precios, Ubicación, Estilos, Higiene, Edad, Cuidados</strong>  <strong>y Mas</strong>.<br><br>O escribime directo por WhatsApp 👇",
-            'bot' ); }
-const waBtn = document.createElement('a');
+            "No encontré una respuesta exacta para eso 🤔. Podés preguntarme por <strong>Turnos, Demora, Precios, Ubicación, Estilos, Higiene, Edad, Cuidados</strong> y más.<br><br>O escribime directo por WhatsApp 👇",
+            'bot'
+          );
+        }
+
+        const waBtn = document.createElement('a');
         waBtn.href = `${WHATSAPP_URL}?text=${encodeURIComponent('Hola Javier, vengo del chat de la web. ' + text)}`;
         waBtn.target = '_blank';
         waBtn.className = 'chat-cta-btn';
@@ -1182,11 +813,6 @@ const waBtn = document.createElement('a');
         chatbotBody.appendChild(waBtn);
         chatbotBody.scrollTop = chatbotBody.scrollHeight;
       }, 700);
-    }
-
-    function sendQuickHint(text) {
-      chatInput.value = text;
-      sendChatMessage();
     }
 
     function toggleChatbot() {
