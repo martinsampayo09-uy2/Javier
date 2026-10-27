@@ -18,7 +18,8 @@
     --light: #ffffff;
     --gray: #1a1a1a;
     --card-bg: #151515;
-    --text-muted: #aaaaaa; }
+    --text-muted: #aaaaaa;
+    --warn: #ffcc00; }
 
   * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
   body {
@@ -27,9 +28,42 @@
     font-family: 'Poppins', sans-serif;
     line-height: 1.5;
     overflow-x: hidden;
-    padding-top: 60px; }
+    padding-top: 92px; } /* construcción (32) + nav (60) */
+
+  /* ===== BARRA WEB EN CONSTRUCCIÓN ===== */
+  .construction-bar {
+    position: fixed; top: 0; left: 0; width: 100%;
+    height: 32px; z-index: 1200;
+    background: repeating-linear-gradient(
+      45deg,
+      #ffcc00,
+      #ffcc00 14px,
+      #111 14px,
+      #111 28px
+    );
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid #000; }
+  .construction-bar .msg {
+    background: #111;
+    color: var(--warn);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 8px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    animation: warnPulse 2.2s infinite ease-in-out; }
+  .construction-bar .msg i { color: var(--warn); font-size: 0.8rem; }
+  @keyframes warnPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); } }
+
   .top-nav {
-    position: fixed; top: 0; left: 0; width: 100%; height: 60px;
+    position: fixed; top: 32px; left: 0; width: 100%; height: 60px;
     background: rgba(10, 10, 10, 0.98);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid #222;
@@ -47,7 +81,7 @@
     transition: transform 0.3s; }
   .menu-toggle:active { transform: scale(0.9); }
   .dropdown-menu {
-    position: fixed; top: 60px; left: 0; width: 100%;
+    position: fixed; top: 92px; left: 0; width: 100%;
     background: rgba(15, 15, 15, 0.99);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid #222;
@@ -69,6 +103,61 @@
   .dropdown-menu li a:active {
     background: rgba(198, 240, 79, 0.08);
     color: var(--accent); border-left-color: var(--accent); }
+
+  /* ===== MENSAJES FLOTANTES DE A UNO (cerca de abajo) ===== */
+  .floating-messages {
+    position: fixed;
+    left: 16px;
+    bottom: 20px;            /* cerca del borde inferior */
+    z-index: 1050;
+    max-width: 280px;
+    pointer-events: none; }
+  .float-msg {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 30px 30px 30px 4px;
+    background: linear-gradient(135deg, #151515, #0d0d0d);
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid var(--accent);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.85);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    line-height: 1.3;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: color 0.25s, border-color 0.25s; }
+  .float-msg:hover {
+    color: var(--accent);
+    border-left-color: var(--accent); }
+  .float-msg i {
+    color: var(--accent);
+    font-size: 1rem;
+    flex-shrink: 0; }
+  .float-msg.avail { border-left-color: #4dff88; }
+  .float-msg.avail i { color: #4dff88; }
+  .float-msg.promo { border-left-color: var(--warn); }
+  .float-msg.promo i { color: var(--warn); }
+
+  /* Animaciones: aparece desde abajo, se va hacia abajo */
+  .float-msg.show {
+    animation: floatIn 0.55s cubic-bezier(.2,.8,.3,1) forwards; }
+  .float-msg.hide {
+    animation: floatOut 0.45s cubic-bezier(.4,0,.6,1) forwards; }
+
+  @keyframes floatIn {
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); } }
+  @keyframes floatOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to   { opacity: 0; transform: translateY(30px) scale(0.95); } }
+
   header.hero { display: flex; flex-direction: column; width: 100%; background: var(--dark); }
   .hero-image {
     width: 100%; background-color: #000;
@@ -350,10 +439,22 @@
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
     .footer-brand-logo { font-size: 1rem; }
     .hero-text h1 { font-size: 2.8rem; }
-    .hero-text h2 { font-size: 1.8rem; } }
+    .hero-text h2 { font-size: 1.8rem; }
+    .floating-messages {
+      left: 10px;
+      bottom: 88px; /* arriba del botón flotante de WhatsApp en móvil */
+      max-width: 230px; }
+    .float-msg { font-size: 0.68rem; padding: 9px 12px; gap: 7px; }
+    .float-msg i { font-size: 0.85rem; } }
 </style>
 </head>
 <body>
+
+  <!-- BARRA WEB EN CONSTRUCCIÓN -->
+  <div class="construction-bar" role="status" aria-live="polite">
+    <span class="msg"><i class="fas fa-person-digging"></i> 🚧 Web en construcción 🚧</span>
+  </div>
+
   <nav class="top-nav">
     <a href="#" class="brand">JAVIER</a>
     <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
@@ -371,6 +472,9 @@
       <li><a href="#" onclick="abrirModal('modal-terminos'); closeMenu(); return false;"><i class="fas fa-file-contract"></i> Términos y Condiciones</a></li>
     </ul>
   </div>
+
+  <!-- MENSAJE FLOTANTE DE A UNO (cerca de abajo) -->
+  <div class="floating-messages" id="floatingMessages" aria-live="polite"></div>
 
   <header class="hero">
     <div class="hero-image">
@@ -643,7 +747,7 @@
 
     setInterval(() => moveSlide(1), 5000);
 
-    // --- Envío de Formulario Central (CORREGIDO) ---
+    // --- Envío de Formulario Central ---
     const WHATSAPP_NUMBER = "59899431568";
 
     function sendBookingForm(e) {
@@ -658,6 +762,82 @@
       const encodedText = encodeURIComponent(text);
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`, '_blank');
     }
+
+    // --- MENSAJES FLOTANTES DE A UNO (cerca de abajo) ---
+    const floatingMessages = document.getElementById('floatingMessages');
+    const floatMsgs = [
+      { icon: 'fa-calendar-check', text: '📅 Hay disponibilidad esta semana', type: 'avail' },
+      { icon: 'fa-bolt',           text: '⚡ Últimos turnos del mes',          type: 'promo' },
+      { icon: 'fa-house',          text: '🏠 Tatuajes a domicilio',            type: 'avail' },
+      { icon: 'fa-percent',        text: '🎁 10% OFF en tu primer tatuaje',    type: 'promo' },
+      { icon: 'fa-clock',          text: '⏰ Turnos: Lun a Sáb',               type: 'avail' },
+      { icon: 'fa-star',           text: '✨ Diseños personalizados',          type: 'promo' },
+      { icon: 'fa-truck-fast',     text: '🚗 Voy a tu zona sin costo extra',   type: 'avail' },
+      { icon: 'fa-fire',           text: '🔥 Promo del mes: consultanos',      type: 'promo' }
+    ];
+
+    let floatIndex = 0;
+    let floatTimer = null;
+    let currentFloatEl = null;
+
+    function createFloatMessage(msg) {
+      const el = document.createElement('div');
+      el.className = `float-msg ${msg.type}`;
+      el.innerHTML = `<i class="fas ${msg.icon}"></i><span>${msg.text}</span>`;
+
+      el.addEventListener('click', () => {
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Javier, vi el anuncio: ' + msg.text + '. Quiero más info.')}`;
+        window.open(url, '_blank');
+      });
+
+      return el;
+    }
+
+    function showNextFloatMessage() {
+      // Si hay un mensaje visible, lo sacamos primero
+      if (currentFloatEl) {
+        const old = currentFloatEl;
+        currentFloatEl = null;
+        old.classList.remove('show');
+        old.classList.add('hide');
+        setTimeout(() => old.remove(), 460);
+      }
+
+      // Esperamos a que termine la salida y mostramos el siguiente
+      setTimeout(() => {
+        const msg = floatMsgs[floatIndex % floatMsgs.length];
+        floatIndex++;
+
+        const el = createFloatMessage(msg);
+        floatingMessages.appendChild(el);
+        currentFloatEl = el;
+
+        void el.offsetWidth; // forzar reflow
+        el.classList.add('show');
+
+        // Programamos la salida a los 3.5 segundos
+        clearTimeout(floatTimer);
+        floatTimer = setTimeout(showNextFloatMessage, 3500);
+      }, 480);
+    }
+
+    // Iniciar ciclo cuando carga la página
+    window.addEventListener('load', () => {
+      setTimeout(showNextFloatMessage, 800);
+    });
+
+    // Pausar cuando la pestaña no está visible
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        clearTimeout(floatTimer);
+      } else {
+        clearTimeout(floatTimer);
+        // Limpiamos y reiniciamos para evitar duplicados
+        floatingMessages.innerHTML = '';
+        currentFloatEl = null;
+        setTimeout(showNextFloatMessage, 600);
+      }
+    });
 
     // --- Chatbot ---
     const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -734,8 +914,7 @@
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/[¿?¡!.,;:()"']/g, "")
-        .trim();
-    }
+        .trim();  }
 
     function findAnswer(userText) {
       const normalized = normalizeText(userText);
@@ -757,31 +936,25 @@
           bestMatch = item;
         }
       });
-
-      return bestScore > 0 ? bestMatch.answer : null;
+return bestScore > 0 ? bestMatch.answer : null;
     }
 
     function addBubble(text, sender) {
       const bubble = document.createElement('div');
-      bubble.className = `chat-bubble ${sender}`;
+    bubble.className = `chat-bubble ${sender}`;
       bubble.innerHTML = text;
       chatbotBody.appendChild(bubble);
-      chatbotBody.scrollTop = chatbotBody.scrollHeight;
-    }
-
-    function showTyping() {
+      chatbotBody.scrollTop = chatbotBody.scrollHeight; }
+ function showTyping() {
       const typing = document.createElement('div');
       typing.className = 'typing-indicator';
       typing.id = 'typingIndicator';
       typing.innerHTML = '<span></span><span></span><span></span>';
       chatbotBody.appendChild(typing);
-      chatbotBody.scrollTop = chatbotBody.scrollHeight;
-    }
-
-    function hideTyping() {
+      chatbotBody.scrollTop = chatbotBody.scrollHeight; }
+function hideTyping() {
       const typing = document.getElementById('typingIndicator');
-      if (typing) typing.remove();
-    }
+      if (typing) typing.remove(); }
 
     function sendChatMessage() {
       const text = chatInput.value.trim();
@@ -800,32 +973,21 @@
           addBubble(answer, 'bot');
         } else {
           addBubble(
-            "No encontré una respuesta exacta para eso 🤔. Podés preguntarme por <strong>Turnos, Demora, Precios, Ubicación, Estilos, Higiene, Edad, Cuidados</strong> y más.<br><br>O escribime directo por WhatsApp 👇",
-            'bot'
-          );
-        }
-
-        const waBtn = document.createElement('a');
+            "No encontré una respuesta exacta para eso 🤔. Podés preguntarme por <strong>Turnos, Demora, Precios, Ubicación, Estilos, Higiene, Edad, Cuidados</strong> y más.<br><br>O escribime directo por WhatsApp 👇", 'bot' ); }
+const waBtn = document.createElement('a');
         waBtn.href = `${WHATSAPP_URL}?text=${encodeURIComponent('Hola Javier, vengo del chat de la web. ' + text)}`;
         waBtn.target = '_blank';
         waBtn.className = 'chat-cta-btn';
         waBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Consultar por WhatsApp';
         chatbotBody.appendChild(waBtn);
-        chatbotBody.scrollTop = chatbotBody.scrollHeight;
-      }, 700);
-    }
-
-    function toggleChatbot() {
+        chatbotBody.scrollTop = chatbotBody.scrollHeight;}, 700); }
+ function toggleChatbot() {
       const chat = document.getElementById('chatbotContainer');
       const isOpening = chat.style.display !== 'flex';
-      chat.style.display = isOpening ? 'flex' : 'none';
-
-      if (isOpening && !chatInitialized) {
+chat.style.display = isOpening ?'flex': 'none';
+if (isOpening && !chatInitialized) {
         chatInitialized = true;
         addBubble(
-          "👋 Soy el asistente de <strong>Javier</strong>.<br>Escribime tu pregunta y te respondo al toque.",
-          'bot' );
-setTimeout(() => chatInput.focus(), 200); } }
-  </script>
-</body>
-</html>
+          "👋 Soy el asistente de <strong>Javier</strong>.<br>Escribime tu pregunta y te respondo al toque.",'bot' );
+setTimeout(() => chatInput.focus(), 200);}}
+  </script></body></html>
