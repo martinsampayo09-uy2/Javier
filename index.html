@@ -9,6 +9,32 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Permanent+Marker&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+<script>
+  // Bloqueo de menú contextual (clic derecho)
+  document.addEventListener("contextmenu", e => e.preventDefault());
+
+  // Bloqueo de atajos de desarrollador
+  document.addEventListener("keydown", e => {
+    const bloqueadas =
+      e.key === "F12" ||
+      e.key === "F8" ||
+      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) ||
+      (e.ctrlKey && (e.key === "u" || e.key === "U"));
+    if (bloqueadas) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  });
+
+  // Bloqueo de doble clic (opcional, según lo que pidas)
+  document.addEventListener("dblclick", e => e.preventDefault());
+</script>
+
+
+
 <style>
   :root {
     --primary: #0d0d0d;
